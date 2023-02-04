@@ -1,10 +1,10 @@
 from django.db import models
-from django.core.validators import MinLengthValidator, MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 class Book(models.Model):
     title = models.CharField(max_length=100)
     rating = models.IntegerField(
-        validators=[MinLengthValidator(1), MaxValueValidator(5)]
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
         )
     author = models.CharField(null=True, max_length=100)
     is_bestselling = models.BooleanField(default=False)
